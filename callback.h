@@ -7,6 +7,9 @@
 
 #include <GL/glu.h>
 
+//glu.h on OSX does not appear to define _GLUfuncptr
+//TODO: skip this if _GLUfuncptr is already defined
+typedef GLvoid (*_GLUfuncptr)();
 extern void goTessBeginData(GLenum type, void *polygon_data);
 extern void goTessVertexData(void *vertex_data, void *polygon_data);
 extern void goTessEndData(void *polygon_data);
